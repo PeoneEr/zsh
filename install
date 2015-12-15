@@ -16,8 +16,16 @@ elif [[ $platform == 'linux' ]]; then
   sudo aptitude install curl
 fi
 
+echo 'install zsh'
+if [[ $platform == 'darwin' ]]; then
+  brew install zsh
+elif [[ $platform == 'linux' ]]; then
+  sudo aptitude install zsh
+fi
+
 echo 'install oh-my-zsh'
 sh -c "$(curl -fsSL https://raw.github.com/robbyrussell/oh-my-zsh/master/tools/install.sh)"
 
 echo 'copy needed files'
-cp {.zshrc, .gitconfig} ~/
+cp .zshrc ~/
+cp .gitconfig ~/
